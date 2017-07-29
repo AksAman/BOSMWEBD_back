@@ -1,0 +1,37 @@
+{% extends 'portal/base.html' %}
+{% load staticfiles %}
+
+{% block stylesheet %}<link rel="stylesheet" href="{% static 'css/register_style.css'%}">{% endblock %}
+
+
+{% block content %}
+<header><h1 align="center">Register Event</h1></header>
+{#    <div class >#}
+{#        <form action="" method="post" class="">#}
+{#            {% csrf_token %}#}
+{#            {% include 'portal/form_template.html' %}#}
+{#            <button type="submit">SUBMIT</button>#}
+{#        </form>#}
+{#    </div>#}
+<div class="container-fluid custom">
+    <div class="row">
+        <div class="col-sm-12 col-md-7 col-sm-offset-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post">
+                        {% csrf_token %}
+                        {% include 'portal/form_template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
